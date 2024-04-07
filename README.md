@@ -1,6 +1,6 @@
 # There is a twin version of another front-end project I maintain
 
-## Url of the other twin library:[Homepage-HTML5-of-Canvas](https://github.com/CUGLin/Homepage-HTML5-of-Canvas)
+## Url of the other twin library : [Homepage-HTML5-of-Canvas](https://github.com/CUGLin/Homepage-HTML5-of-Canvas)
 
 ## This is the cover of the core homepage：
 ![image](https://github.com/CUGLin/New-project-of-homepage/assets/122336135/071265bd-ac48-44b5-82f1-3845c500fe79)
