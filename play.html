@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>this is live</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+      background: url('second.jpg') center center fixed;
+      background-size: cover;
+    }
+    .content {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 4em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      animation: glowing 2s ease-in-out infinite alternate;
+    }
+    p {
+      font-size: 1.8em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .background-images {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-size: cover;
+      background-position: center;
+      animation: fadeBackground 8s ease infinite;
+    }
+    @keyframes fadeBackground {
+      0% { opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    @keyframes glowing {
+      from {
+        text-shadow: 0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.5), 0 0 30px rgba(255,255,255,0.5), 0 0 40px rgba(255,255,255,0.5), 0 0 70px rgba(255,255,255,0.5), 0 0 80px rgba(255,255,255,0.5), 0 0 100px rgba(255,255,255,0.5);
+      }
+      to {
+        text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.8), 0 0 50px rgba(255,255,255,0.8), 0 0 80px rgba(255,255,255,0.8), 0 0 100px rgba(255,255,255,0.8), 0 0 150px rgba(255,255,255,0.8);
+      }
+    }
+    .music-player {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+    }
+    .music-player button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      outline: none;
+    }
+    .music-player button img {
+      width: 50px;
+      height: 50px;
+    }
+    .music-controls {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+    }
+    .music-controls input[type="range"] {
+      -webkit-appearance: none;
+      width: 100px;
+      height: 5px;
+      background: rgb(81, 106, 87); /* Change to your desired color */
+      border-radius: 5px;
+      outline: none;
+      margin: 0 10px;
+    }
+    .music-controls input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 15px;
+      height: 15px;
+      background: rgb(50, 99, 62); /* Change to your desired color */
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="background-images"></div>
+  <div class="content">
+    <h1>Trval to ChongQiing</h1>
+    <p>
+      落花或许心怀感激，谢流水轻托其飘零；<br>
+      流水却无意留意，落花那刹那的芳华。<br>
+      或许你永驻我心之深处，<br>
+      然我，不过是浩渺云烟中，一抹微不足道的过客。
+    </p>
+  </div>
+
+  <audio id="background-music" src="从你的全世界路过.ogg" loop></audio>
+  <div class="music-player">
+    <button onclick="toggleMusic()">
+      <img src="play.png" alt="Play">
+    </button>
+    <div class="music-controls">
+      <input type="range" id="volume" min="0" max="1" step="0.01" value="1" oninput="changeVolume()">
+      <input type="range" id="progress" min="0" max="100" step="0.1" value="0" oninput="changeProgress()">
+    </div>
+  </div>
+
+  <script>
+    var backgroundImages = ['second.jpg', 'third.jpg', 'forth.jpg', 'fivth.jpg'];
+    var index = 0;
+    var backgroundElement = document.querySelector('.background-images');
+    var music = document.getElementById('background-music');
+
+    function changeBackground() {
+      index = (index + 1) % backgroundImages.length;
+      backgroundElement.style.backgroundImage = 'url(' + backgroundImages[index] + ')';
+    }
+
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+
+    function changeVolume() {
+      music.volume = document.getElementById('volume').value;
+    }
+
+    function changeProgress() {
+      var progress = document.getElementById('progress').value / 100;
+      music.currentTime = progress * music.duration;
+    }
+
+    changeBackground(); // 初始化背景
+
+    setInterval(changeBackground, 8000); // 每隔8秒切换一次背景
+  </script>
+</body>
+</html>

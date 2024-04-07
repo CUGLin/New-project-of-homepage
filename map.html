@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>小林同学的实时位置</title>
+  <style>
+    /* Add some basic styling, adjust as needed */
+    #container {
+      width: 1375px;
+      height: 819px;
+      border: 1px solid gray;
+      position: relative;
+    }
+    .map-controls {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+    }
+    .map-button {
+      display: block;
+      margin-bottom: 10px;
+      cursor: pointer;
+      padding: 10px;
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+    }
+    .map-button:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+  <script src="https://webapi.amap.com/maps?v=1.4.15&key=a161bd6d1a14dea5290f1bdc0df4d68e" type="text/javascript"></script>
+</head>
+<body>
+  <div id="container">
+    <div class="map-controls">
+      <!-- 添加放大、缩小按钮 -->
+      <div class="map-button" onclick="zoomIn()">放大</div>
+      <div class="map-button" onclick="zoomOut()">缩小</div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var map = new AMap.Map("container", {
+      resizeEnable: true,
+      center: [114.61716,30.457544], // 设置地图中心点
+      zoom: 16 // 设置地图缩放级别
+    });
+
+    var marker = new AMap.Marker({
+      position: [114.61716,30.457544], // 设置标记点坐标
+      map: map // 设置标记点所在地图
+    });
+
+    var infoWindow = new AMap.InfoWindow({
+      content: "<h4 style='margin:0;'>中国地质大学（武汉）未来城校区</h4><br/>地址:湖北省武汉市洪山区东湖新技术开发区锦程街68号", // 设置信息窗口内容
+      offset: new AMap.Pixel(0, -30) // 设置信息窗口偏移量，以确保信息窗口指向标记点
+    });
+    infoWindow.open(map, marker.getPosition()); // 开启信息窗口
+
+    // 放大函数
+    function zoomIn() {
+      map.zoomIn();
+    }
+
+    // 缩小函数
+    function zoomOut() {
+      map.zoomOut();
+    }
+  </script>
+</body>
+</html>

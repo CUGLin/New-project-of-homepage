@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前端探索</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial Black', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* Hide horizontal scrollbar */
+        }
+
+        #video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 1;
+            color: #fff;
+        }
+
+        #title {
+            font-size: 6em;
+            margin-bottom: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.5); /* Modified background color */
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.5); /* Modified background color */
+            color: #000; /* Adjusted text color for better visibility */
+            font-size: 2.5em;
+            padding: 20px 40px;
+            width: 350px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #3498db;
+            color: #fff;
+            font-size: 2.8em;
+        }
+    </style>
+</head>
+
+<body>
+    <video id="video-background" autoplay loop muted>
+        <source src="Akie.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="container">
+        <div id="title">前端探索</div>
+
+        <div class="button-container">
+            <a href="jisuanqi.html" class="button">简易计算器</a>
+            <a href="son and earth.html" class="button">地月运动模拟</a>
+            <a href="Solar System Animation.html" class="button">太阳系运动模拟</a>
+            <a href="clock.html" class="button">简易闹钟</a>
+            <a href="play.html" class="button">重庆记忆</a>
+        </div>
+    </div>
+</body>
+
+</html>
